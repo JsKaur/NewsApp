@@ -3,17 +3,24 @@
 import React, { Component } from 'react'
 
 export class NewsItem extends Component {
+  // constructor(){
+  //   super();
+  //   console.log("I am from constructor");
+  // }
+  // this gets printed on console for 6 times because it is constructor of NewsItem and we have 6 news items in News.js.
+
+
   render() {
-    let {title, description}=this.props;
+    let {title, description, imageurl, newsUrl}=this.props;
     return (
         
-      <div>
+      <div className="my-3">
         <div className="card" style={{width: "18rem"}}>
-  <img src="..." className="card-img-top" alt="..."/>
+  <img src={imageurl} className="card-img-top" alt="..."/>
   <div className="card-body">
     <h5 className="card-title">{title}</h5>
     <p className="card-text">{description}</p>
-    <a href="/" className="btn btn-primary">Go somewhere</a>
+    <a href="/" className="btn btn-primary">Read More</a>
   </div>
 </div>
       </div>

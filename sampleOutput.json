@@ -1,8 +1,7 @@
-import React, { Component } from "react";
-import NewsItem from "./NewsItem";
-
-export class News extends Component {
-  articles= [
+{
+    "status": "ok",
+    "totalResults": 2,
+    "articles": [
       {
         "source": {
           "id": "espn-cric-info",
@@ -30,44 +29,4 @@ export class News extends Component {
         "content": "Last week, we at ESPNcricinfo did something we have been thinking of doing for eight years now: pretend-live ball-by-ball commentary for a classic cricket match. We knew the result, yes, but we tried… [+6823 chars]"
       }
     ]
-
-
-  constructor(){
-
-    // we use state when we want to change the value of a variable and want to reflect that change in the UI without refreshing the page.
-    // props are immutable, we cannot change the value of props. they are read only.
-  
-    super();
-    console.log("I am constructor from news component");
-    this.state={
-      articles:this.articles,
-      loading:false
-    }
   }
-
-
-  render() {
-    return (
-      <div className="container my-3">
-        <h2>NewsApp-Top Headlines</h2>
-        <div className="row">
-          <div className="col-md-4">
-            <NewsItem title="myTitle1" description="my description" imageurl="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1099495_800x450.jpg" newsUrl="" />
-          </div>
-          <div className="col-md-4">
-            <NewsItem title="myTitle2" description="my description" imageurl="" newsUrl="" />
-          </div>
-          <div className="col-md-4">
-            <NewsItem title="myTitle3" description="my description" imageurl="" newsUrl=""/>
-          </div>
-        </div>
-
-        <NewsItem />
-        <NewsItem />
-        <NewsItem />
-      </div>
-    );
-  }
-}
-
-export default News;
