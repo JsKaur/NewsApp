@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import NewsItem from './NewsItem'
+import React, { Component } from 'react';
+import NewsItem from './NewsItem';
 
 export class News extends Component {
     articles = [
@@ -53,6 +53,17 @@ export class News extends Component {
         }
     }
 
+    // it is a lifecycle method which means it will run after the render method.
+    // async function can wait in its method for promises to resolve. 
+    async componentDidMount(){
+      let url="https://newsapi.org/v2/top-headlines?country=us&apiKey=3ae6ee5ab0944d65840bd11170383265"
+      let data= await fetch(url);
+      let parsedData=await(data.json());
+      console.log(data); 
+      console.log(parsedData);  
+      this.setState({articles: parsedData.articles});
+    }
+
     render() {
         return (
           <div className="container my-3">
@@ -61,7 +72,7 @@ export class News extends Component {
           <div className="row">
           {this.state.articles.map((element)=>{
             return <div className="col-md-4" key={element.url}>
-            <NewsItem  title={element.title.slice(0,44)} description={element.description.slice(0,88)} imageurl={element.urlToImage} newsUrl={element.url} />
+            <NewsItem  title={element.title? element.title.slice(0,44):""} description={element.description?element.description.slice(0,88):""} imageurl={element.urlToImage} newsUrl={element.url} />
           </div>
           }
           )}
